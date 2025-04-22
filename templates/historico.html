@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Histórico de Análises</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Histórico de Análises</h1>
+    <a href="/" style="display:block; margin-bottom:1rem;">← Voltar</a>
+    <table style="width:100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Frase</th>
+          <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Resultado</th>
+          <th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Data/Hora (UTC)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in historico %}
+        <tr>
+          <td style="padding:8px; border-bottom:1px solid #eee;">{{ row['frase'] }}</td>
+          <td style="padding:8px; border-bottom:1px solid #eee;"
+              class="{{ row['resultado'] }}">{{ row['resultado']|capitalize }}</td>
+          <td style="padding:8px; border-bottom:1px solid #eee;">{{ row['timestamp'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
