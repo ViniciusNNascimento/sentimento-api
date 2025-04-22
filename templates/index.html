@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Classificador de Sentimento</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-  <div class="container">
-    <h1>Teste de Sentimento</h1>
-    <form method="POST" action="/analise-form">
-        <input type="text" name="frase" placeholder="Digite sua frase" required>
-        <button type="submit">Analisar</button>
-    </form>
 
-    {% if resultado %}
-      <p class="resultado {{ resultado }}">{{ resultado | capitalize }}</p>
-    {% endif %}
-  </div>
+<body>
+    <div class="container">
+
+
+        <h1>Teste de Sentimento</h1>
+        <form method="POST" action="/analise-form">
+            <input type="text" name="frase" placeholder="Digite sua frase" required>
+            <button type="submit">Analisar</button>
+        </form>
+
+        {% if resultado %}
+        <p class="resultado {{ resultado }}">{{ resultado | capitalize }}</p>
+        {% endif %}
+
+
+        <a href="/historico" style="display:block; margin-bottom:1rem; text-decoration:none; color:#4a90e2;">
+            Ver histórico de análises →
+        </a>
+    </div>
 </body>
+
 </html>
