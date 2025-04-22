@@ -1,0 +1,18 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Classificador de Sentimento</title>
+</head>
+<body>
+    <h1>Teste de Sentimento</h1>
+    <form method="POST" action="/analise-form">
+        <input type="text" name="frase" placeholder="Digite sua frase" required>
+        <button type="submit">Analisar</button>
+    </form>
+    {% if resultado %}
+        <p>Resultado: <strong>{{ resultado }}</strong></p>
+    {% endif %}
+</body>
+</html>
